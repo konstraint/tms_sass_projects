@@ -1,0 +1,174 @@
+$carousel-indicator-width: 270px;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
+
+$width-page-content: 1170px;
+
+%tpl-diplay-fex {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin font-style($f-family, $f-atr, $f-weight, $f-size, $line-height, $text-t: none, $text-color: #fff) {
+    font-family: $f-family, $f-atr;
+    font-weight: $f-weight;
+    font-size: $f-size;
+    line-height: $line-height;
+    text-transform: $text-t;
+    color: $text-color;
+}
+
+@mixin block-style($width, $height, $margin) {
+    width: $width;
+    height: $height;
+    margin: $margin;
+}
+
+.header {
+    @include block-style(100%, 1024px, 0 0 50px);
+    background: linear-gradient(rgba(233, 130, 131, 0.9), rgba(237, 215, 137, 0.9)), url("../images/header_background.png") no-repeat;
+    background-size: 100% 100%;
+    &__menu {
+        @include block-style($width-page-content, 100px, 0 auto 57px);
+        @extend %tpl-diplay-fex;
+        align-items: center;
+        &-logo {
+            @include font-style('Raleway', sans-serif, 700, 26px, 26px);
+        }
+        & #header__menu-style {
+            @include font-style('Raleway', sans-serif, 600, 14px, 16px, uppercase);
+            .header__menu-item {
+                color: #fff;
+                &:hover {
+                    color: #F4BF87;
+                    border-bottom: 1px solid #F4BF87;
+                }
+            }
+        }
+    }
+    .header__carousel-caption {
+        position: static;
+        width: $width-page-content;
+        margin: 0 auto;
+        &-title {
+            @include font-style('Kaushan Script', cursive, 400, 64px, 92px);
+            height: 80px;
+            margin-bottom: 0;
+        }
+        &-text {
+            @include font-style('Montserrat', sans-serif, 700, 144px, 175px, uppercase);
+            height: 370px;
+            margin-bottom: 44px;
+        }
+        &-line {
+            width: 170px;
+            margin: 0 auto 74px;
+            border-bottom: 1px solid #fff;
+        }
+        &-button {
+            width: 369px;
+            height: 77px;
+            border: 4px solid #fff;
+            background-color: transparent;
+            margin-bottom: 116px;
+            @include font-style('Raleway', sans-serif, 700, 24px, 28px, uppercase);
+            &:hover, &:active {
+                background-color: #fff;
+                color: #E4BE8D;
+            }
+            &:active {
+                border-color: #E4BE8D;
+            }
+        }
+    }
+    .carousel-indicators {
+        width: $width-page-content;
+        margin: 0 auto;
+        justify-content: space-between;
+        & [data-bs-target] {
+            width: $carousel-indicator-width;
+            margin: 0;
+        }
+        & [aria-current="true"] .progr-bar {
+            @keyframes width {
+                from {
+                  width: 0;
+                  background-color: red;
+                }
+              
+                to {
+                  width: $carousel-indicator-width;
+                  background-color: red;
+                }
+            }
+            height: $carousel-indicator-height;           
+            animation: width 5s ease .6s alternate;  
+        }
+    }
+    &__slide-legend {
+        @include block-style($width-page-content, auto, 0 auto);
+        @extend %tpl-diplay-fex;
+        &-content {
+            width: $carousel-indicator-width;
+        }
+        &-num {
+            @include font-style('Raleway', sans-serif, 700, 36px, 42px);
+        }
+        &-text {
+            @include font-style('Raleway', sans-serif, 500, 18px, 21px, uppercase);
+        }
+    }
+}
+
+.about {
+    @include block-style($width-page-content, auto, 0 auto 108px);
+    &__title {
+        @include block-style(fit-content, auto, 0 auto 40px);
+        @include font-style('Kaushan Script', cursive, 400, 30px, 43px, none, #2D3033);
+    }
+    &__text {
+        @include block-style(fit-content, auto, 0 auto 44px);
+        @include font-style('Raleway', sans-serif, 900, 36px, 42px, uppercase, #2D3033);
+    }
+    &__line {
+        @include block-style(170px, 0, 0 auto 50px);
+        border-bottom: 4px solid #F38281;
+    }
+    &__content {
+        margin-bottom: 98px;
+        text-align: center;
+        @include font-style('Raleway', sans-serif, 400, 18px, 21px, none, #000);
+    }
+    &__team {
+        @extend %tpl-diplay-fex;
+        &-img {
+            @include block-style(370px, 338px, 0);
+        }
+    }
+}
+
+.futures {
+    @include block-style(100%, auto, 0 0 50px);
+    background-color: #95E1D3;
+    display: flex;
+    justify-content: center;
+    &__block {
+        @include block-style(234px, 250px, 0);
+        text-align: center;
+        padding: 60px 0;
+        border-left: 1px solid #fff;
+        &-num {
+            margin: 0 0 20px;
+            @include font-style('Raleway', sans-serif, 700, 64px, 75px);
+        }
+        &-text {
+            margin: 0;
+            @include font-style('Raleway', sans-serif, 700, 24px, 28px);
+        }
+    }
+    &__block:last-child {
+        border-right: 1px solid #fff;
+    }
+}
