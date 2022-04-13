@@ -1,64 +1,29 @@
-$width-page-content: 1170px;
-$width-service-block-content: 370px;
-$carousel-indicator-width: 270px;
-$accordion-button-padding-y: 24px;
-$carousel-control-color: #C6CBCD;
-$carousel-control-width: 2rem;
-
+@import "./variables.scss";
+@import "./mixins.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
 
-@mixin font-style($f-family, $f-atr, $f-weight, $f-size, $line-height, $text-t: none, $text-color: #fff) {
-    font-family: $f-family, $f-atr;
-    font-weight: $f-weight;
-    font-size: $f-size;
-    line-height: $line-height;
-    text-transform: $text-t;
-    color: $text-color;
-}
-
-@mixin block-style($width, $height, $margin) {
-    width: $width;
-    height: $height;
-    margin: $margin;
-}
-
-%tpl-diplay-flex {
-    display: flex;
-    justify-content: space-between;
-}
-
-%tpl-block-title-style {
-    @include block-style(fit-content, auto, 0 auto 40px);
-    @include font-style('Kaushan Script', cursive, 400, 30px, 43px, none, #2D3033);
-}
-
-%tpl-block-text-style {
-    @include block-style(fit-content, auto, 0 auto 44px);
-    @include font-style('Raleway', sans-serif, 900, 36px, 42px, uppercase, #2D3033);
-}
-
-@each $section, $width, $height, $margin, $line-margin-bottom, $content-margin-bottom in 
-                        (about, $width-page-content, auto, 0 auto 108px, 50px, 98px), 
-                        (services, $width-page-content, auto, 0 auto 91px, 88px, 0),
-                        (design, 100%, 868px, 0 0 50px, 59px, 0),
-                        (work, $width-page-content, auto, 0 auto 114px, 38px, 80px),
-                        (team, $width-page-content, auto, 0 auto 84px, 49px, 77px),
-                        (partners, 100%, 211px, 0 0 103px, 0, 0),
-                        (our-work, 100%, auto, 0 0 84px, 38px, 80px),
-                        (clients, 100%, 923px, 0 0 103px, 42px, 0),
-                        (blog, $width-page-content, auto, 0 auto 85px, 42px, 0) {
+@each $section, $width, $height, $margin, $padding, $line-margin-bottom, $content-margin-bottom in 
+                        (about, $width-page-content, auto, 0 auto 108px, 0, 50px, 58px), 
+                        (services, $width-page-content, auto, 0 auto 91px, 0, 88px, 0),
+                        (design, 100%, 868px, 0 0 50px, 50px 0 57px, 59px, 0),
+                        (work, $width-page-content, auto, 0 auto 114px, 0, 38px, 80px),
+                        (team, $width-page-content, auto, 0 auto 84px, 0, 49px, 77px),
+                        (partners, 100%, 211px, 0 0 103px, 42px 0, 0, 0),
+                        (our-work, 100%, auto, 0 0 84px, 0, 38px, 80px),
+                        (clients, 100%, 923px, 0 0 103px, 60px 0 42px, 42px, 0),
+                        (blog, $width-page-content, auto, 0 auto 85px, 0, 42px, 0) {
     .#{$section} {
-        @include block-style($width, $height, $margin);
+        @include block-style($width, $height, $margin, $padding);
     }
      
     .#{$section}__title {
-        @extend %tpl-block-title-style;
+        @include tpl-block-title-style();
     }
 
     .#{$section}__text {
-        @extend %tpl-block-text-style;
+        @include tpl-block-text-style();
     }
 
     .#{$section}__line {
@@ -74,13 +39,13 @@ $carousel-control-width: 2rem;
 }
 
 .tpl__team {
-    @extend %tpl-diplay-flex;
+    @include tpl-display-flex();
 
     &-container {
         position: relative;
 
         &-img {
-            @include block-style(370px, 338px, 0);
+            @include block-style(370px, 338px);
         }
 
         &-bt {
@@ -106,7 +71,7 @@ $carousel-control-width: 2rem;
 
     &-container:hover &-container-bt {
         display: block;
-        @include block-style(370px, 338px, 0);
+        @include block-style(370px, 338px);
         position: absolute;
         right: 16px;
         bottom: 16px;
@@ -127,7 +92,7 @@ $carousel-control-width: 2rem;
         }
 
         .bt-icon-block {
-            @include block-style(42px, 42px, 0);
+            @include block-style(42px, 42px);
             background: #F9EFCF;
         }
         
@@ -161,7 +126,7 @@ $carousel-control-width: 2rem;
 
     &__menu {
         @include block-style($width-page-content, 100px, 0 auto 57px);
-        @extend %tpl-diplay-flex;
+        @include tpl-display-flex();
         align-items: center;
 
         &-logo {
@@ -252,7 +217,7 @@ $carousel-control-width: 2rem;
 
     &__slide-legend {
         @include block-style($width-page-content, auto, 0 auto);
-        @extend %tpl-diplay-flex;
+        @include tpl-display-flex();
 
         &-content {
             width: $carousel-indicator-width;
@@ -275,7 +240,7 @@ $carousel-control-width: 2rem;
     justify-content: center;
 
     &__block {
-        @include block-style(234px, 250px, 0);
+        @include block-style(234px, 250px);
         text-align: center;
         padding: 60px 0;
         border-left: 1px solid #fff;
@@ -298,11 +263,11 @@ $carousel-control-width: 2rem;
 
 .services {
     &__block {
-        @extend %tpl-diplay-flex;
+        @include tpl-display-flex();
         flex-wrap: wrap;
 
         &-content {
-            @extend %tpl-diplay-flex;
+            @include tpl-display-flex();
             width: $width-service-block-content;
 
             &-img {
@@ -334,7 +299,6 @@ $carousel-control-width: 2rem;
 }
 
 .design {
-    padding: 50px 0 57px;
     background: linear-gradient(rgba(255, 255, 255, 0.8) , rgba(255, 255, 255, 0.8)), url("../images/bg_design.png") no-repeat;
     background-size: 100% 100%;
 
@@ -345,7 +309,7 @@ $carousel-control-width: 2rem;
         &-tablet {
             position: relative;
             z-index: 2;
-            @include block-style(100%, 100%, 0);
+            @include block-style(100%, 100%);
         }
 
         &-tablet-inner {
@@ -373,10 +337,10 @@ $carousel-control-width: 2rem;
 
 .work {
     &__block {
-        @extend %tpl-diplay-flex;
+        @include tpl-display-flex();
         
         &-image {
-            @include block-style(570px, 483px, 0);
+            @include block-style(570px, 483px);
         }
 
         .accordion {
@@ -440,8 +404,7 @@ $carousel-control-width: 2rem;
 }
 
 .reviews, .reviews2 {
-    @include block-style(100%, 254px, 0 0 103px);
-    padding: 42px 0;
+    @include block-style(100%, 254px, 0 0 103px, 42px 0);
     background: #F8F8F8;
 
     .carousel {
@@ -451,17 +414,17 @@ $carousel-control-width: 2rem;
             @include block-style(970px, auto, 0 auto);
 
             .item-block {
-                @extend %tpl-diplay-flex;
-                @include block-style(100%, auto, 0);
+                @include tpl-display-flex();
+                @include block-style(100%);
                 
                 &-img {
-                    @include block-style(170px, 170px, 0);
+                    @include block-style(170px, 170px);
                     padding: 35px;
                     border: 2px solid #95E1D3;
                 }
 
                 &-content {
-                    @include block-style(770px, auto, 0);
+                    @include block-style(770px);
                     
                     &-text {
                         @include font-style('Raleway', sans-serif, 500, 24px, 28px, none, #A9AFB1);
@@ -501,12 +464,10 @@ $carousel-control-width: 2rem;
 
 .partners {
     background: #F8F8F8;
-    padding: 42px 0;
 
     &__block {
-        width: $width-page-content;
-        margin: 0 auto;
-        @extend %tpl-diplay-flex;
+        @include block-style($width-page-content, auto, 0 auto);
+        @include tpl-display-flex();
         align-items: center;
     }
 }
@@ -576,25 +537,24 @@ $carousel-control-width: 2rem;
 }
 
 .clients {
-    padding: 60px 0 42px;
     background: linear-gradient(rgba(255, 255, 255, 0.8) , rgba(255, 255, 255, 0.8)), url("../images/bg_clients.png") no-repeat;
     background-size: 100% 100%;
 
     &__block {
         @include block-style($width-page-content, auto, 0 auto);
-        @extend %tpl-diplay-flex;
+        @include tpl-display-flex();
         flex-wrap: wrap;
 
         &-content {
-            @include block-style(549px, auto, 0);
-            @extend %tpl-diplay-flex;
+            @include block-style(549px);
+            @include tpl-display-flex();
             &-img {
                 @include block-style(130px, 130px, 20px 0 0 20px);
             }
         }
 
         &-wrapper {
-            @include block-style(369px, auto, 0);
+            @include block-style(369px);
 
             &-name {
                 @include font-style('Raleway', sans-serif, 700, 24px, 28px, uppercase, #2D3033);
@@ -642,7 +602,7 @@ $carousel-control-width: 2rem;
                     position: absolute;
                     top: 148px;
                     left: -14px;
-                    @include block-style(80px, 80px, 0);
+                    @include block-style(80px, 80px);
                     padding: 10px 0;
                     text-align: center;
                     background-color: #95E1D3;
@@ -687,9 +647,8 @@ $carousel-control-width: 2rem;
 }
 
 .map {
-    @include block-style(100%, 231px, 0 0 42px);   
+    @include block-style(100%, 231px, 0 0 42px, 42px 0);   
     background: linear-gradient(rgba(255, 255, 255, 0.8) , rgba(255, 255, 255, 0.8)), url("../images/bg_map.png") no-repeat;
-    padding: 42px 0;
 
     &__icon {
         @include block-style(42px, 42px, 0 calc(50% - 21px) 18px); 
@@ -712,10 +671,10 @@ $carousel-control-width: 2rem;
     border-bottom: 1px solid #C6CBCD;
 
     &__block {
-        @extend %tpl-diplay-flex;
+        @include tpl-display-flex();
 
         &-wrapper {
-            @include block-style(370px, auto, 0);
+            @include block-style(370px);
 
             .logo-text {
                 @include font-style('Raleway', sans-serif, 400, 18px, 21px, none, #C6CBCD);
@@ -748,7 +707,7 @@ $carousel-control-width: 2rem;
         }
 
         &-social {
-            @extend %tpl-diplay-flex;
+            @include tpl-display-flex();
             align-items: center;
             @include block-style(100%, 43px, 0 0 40px);
             border-top: 1px solid #C6CBCD;
@@ -758,7 +717,7 @@ $carousel-control-width: 2rem;
             }
 
             .social-icons {
-                @extend %tpl-diplay-flex;
+                @include tpl-display-flex();
                 width: 283px;
             }
 
@@ -774,7 +733,7 @@ $carousel-control-width: 2rem;
 
         &-form {
             .form-item {
-                @include block-style(234px, 55px, 0);
+                @include block-style(234px, 55px);
                 @include font-style('Raleway', sans-serif, 400, 18px, 21px, none, #C6CBCD);
                 text-align: center;
                 border: 1px solid #C6CBCD;
@@ -808,7 +767,7 @@ $carousel-control-width: 2rem;
         }
 
         &-blogs {
-            @extend %tpl-diplay-flex;
+            @include tpl-display-flex();
             margin-top: 20px;
 
             &-content {

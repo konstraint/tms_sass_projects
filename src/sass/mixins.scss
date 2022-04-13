@@ -1,0 +1,30 @@
+@mixin font-style($f-family, $f-atr, $f-weight, $f-size, $line-height, $text-t: none, $text-color: #fff) {
+    font-family: $f-family, $f-atr;
+    font-weight: $f-weight;
+    font-size: $f-size;
+    line-height: $line-height;
+    text-transform: $text-t;
+    color: $text-color;
+}
+
+@mixin block-style($width, $height: auto, $margin: 0, $padding: 0) {
+    width: $width;
+    height: $height;
+    margin: $margin;
+    padding: $padding;
+}
+
+@mixin tpl-display-flex() {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin tpl-block-title-style() {
+    @include block-style(fit-content, auto, 0 auto 40px);
+    @include font-style('Kaushan Script', cursive, 400, 30px, 43px, none, #2D3033);
+}
+
+@mixin tpl-block-text-style() {
+    @include block-style(fit-content, auto, 0 auto 44px);
+    @include font-style('Raleway', sans-serif, 900, 36px, 42px, uppercase, #2D3033);
+}
