@@ -843,7 +843,7 @@ $carousel-control-width: 2rem;
 }
 
 .footer {
-    @include block-style($width-page-content, 50px, 0 auto);
+    @include block-style($width-page-content, auto, 0 auto);
 
     &-text {
         @include font-style('Raleway', sans-serif, 700, 13px, 15px, uppercase, #2D3033);
