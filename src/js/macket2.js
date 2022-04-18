@@ -1,11 +1,14 @@
 import * as bootstrap from 'bootstrap';
+import SimpleBar from 'simpleBar';
 
-$('.mycustom-scroll').mCustomScrollbar({
-    axis: 'y',              // вертикальный скролл 
-    //theme: 'rounded-dark',  // тема 
-    scrollInertia: '330',   // продолжительность прокрутки, значение в миллисекундах 
-    setHeight: '163px',      // высота блока (переписывает CSS) 
-    mouseWheel: {
-        deltaFactor: 300    // кол-во пикселей на одну прокрутку колёсика мыши 
-    }
+new SimpleBar(document.getElementById('accordeon-item1'), {
+    autoHide: false
+});
+
+new SimpleBar(document.getElementById('accordeon-item2'), {
+    autoHide: false
+});
+
+new SimpleBar(document.getElementById('accordeon-item3'), {
+    autoHide: false
 });

@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Макет2</title>
         <link rel="stylesheet" href="sass/macket2.scss">
         <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
         <link rel="stylesheet" href="sass/macket2_tablet.scss">
     </head>
     <body>
@@ -243,8 +243,10 @@
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body mycustom-scroll">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, nunc, rhoncus, id tincidunt tellus rhoncus ornare. Amet, et elementum enim mattis. Purus volutpat sagittis ut adipiscing congue euismod sit enim fringilla. Proin viverra nibh in vel ut pulvinar nec senectus. Justo, id ac facilisis fringilla fermentum sed nunc aenean.
+                            <div class="accordion-body" id="accordeon-item1">
+                                <p class="accordion-body-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eros, nunc, rhoncus, id tincidunt tellus rhoncus ornare. Amet, et elementum enim mattis. Purus volutpat sagittis ut adipiscing congue euismod sit enim fringilla. Proin viverra nibh in vel ut pulvinar nec senectus. Justo, id ac facilisis fringilla fermentum sed nunc aenean.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -256,8 +258,10 @@
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body mycustom-scroll">
-                                <strong>Это тело аккордеона второго элемента.</strong> По умолчанию он скрыт, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                            <div class="accordion-body" id="accordeon-item2">
+                                <p class="accordion-body-text">
+                                    <strong>Это тело аккордеона второго элемента.</strong> По умолчанию он скрыт, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -269,8 +273,10 @@
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body mycustom-scroll">
-                                <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                            <div class="accordion-body" id="accordeon-item3">
+                                <p class="accordion-body-text">
+                                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -323,7 +329,7 @@
             <div class="tpl__team">
                 <div class="tpl__team-container">
                     <div class="tpl__team-content">
-                        <img src="./images/team_1.png" class="tpl__team-container-img">
+                        <img src="./images/team_1.png" class="tpl__team-content-img">
                         <div class="tpl__team-container-bt">
                             <div class="bt-icons-block">
                                 <div class="bt-icon-block">
@@ -354,7 +360,7 @@
                 </div>
                 <div class="tpl__team-container">
                     <div class="tpl__team-content">
-                        <img src="./images/team_2.png" class="tpl__team-container-img">
+                        <img src="./images/team_2.png" class="tpl__team-content-img">
                         <div class="tpl__team-container-bt">
                             <div class="bt-icons-block">
                                 <div class="bt-icon-block">
@@ -385,7 +391,7 @@
                 </div>
                 <div class="tpl__team-container">
                     <div class="tpl__team-content">
-                        <img src="./images/team_3.png" class="tpl__team-container-img">
+                        <img src="./images/team_3.png" class="tpl__team-content-img">
                         <div class="tpl__team-container-bt">
                             <div class="bt-icons-block">
                                 <div class="bt-icon-block">
@@ -493,7 +499,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="item-block">
-                            <img src="./images/reviewer2_1.png" class="d-block item-block-image" alt="...">
+                            <img src="./images/reviewer2_1.png" class="d-block item-block-image" alt="reviewer1">
                             <div class="item-block-content">
                                 <p class="item-block-content-text">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque nec diam platea ullamcorper feugiat amet. Id aliquet vehicula feugiat arcu arcu nulla ornare. Sed amet venenatis, massa sit.
@@ -506,10 +512,10 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="./images/icon_message.png" class="d-block" alt="...">
+                        <img src="./images/icon_message.png" class="d-block item-block-image" alt="reviewer2">
                     </div>
                     <div class="carousel-item">
-                        <img src="./images/icon_message.png" class="d-block" alt="...">
+                        <img src="./images/icon_message.png" class="d-block item-block-image" alt="reviewer3">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2"  data-bs-slide="prev">
@@ -594,9 +600,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <img src="./images/icon_blog_gem-alt.png" alt="gem-alt">
+                            <img src="./images/icon_blog_gem-alt.png" class="card-footer-icon" alt="gem-alt">
                             <span class="card-footer-text">542</span>
-                            <img src="./images/icon_blog_chat-empty.png" alt="chat-empty">
+                            <img src="./images/icon_blog_chat-empty.png" class="card-footer-icon" alt="chat-empty">
                             <span class="card-footer-text">17</span>
                         </div>
                     </div>
@@ -615,9 +621,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <img src="./images/icon_blog_gem-alt.png" alt="gem-alt">
+                            <img src="./images/icon_blog_gem-alt.png" class="card-footer-icon" alt="gem-alt">
                             <span class="card-footer-text">542</span>
-                            <img src="./images/icon_blog_chat-empty.png" alt="chat-empty">
+                            <img src="./images/icon_blog_chat-empty.png" class="card-footer-icon" alt="chat-empty">
                             <span class="card-footer-text">17</span>
                         </div>
                     </div>
@@ -636,9 +642,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <img src="./images/icon_blog_gem-alt.png" alt="gem-alt">
+                            <img src="./images/icon_blog_gem-alt.png" class="card-footer-icon" alt="gem-alt">
                             <span class="card-footer-text">542</span>
-                            <img src="./images/icon_blog_chat-empty.png" alt="chat-empty">
+                            <img src="./images/icon_blog_chat-empty.png" class="card-footer-icon" alt="chat-empty">
                             <span class="card-footer-text">17</span>
                         </div>
                     </div>
@@ -655,7 +661,7 @@
         <article class="info-blog">
             <div class="info-blog__block">
                 <div class="info-blog__block-wrapper">
-                    <img src="./images/logo_blog.png">
+                    <img src="./images/logo_blog.png" class="logo-img" alt="MoGo">
                     <p class="logo-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis proin varius vitae leo eget tincidunt duis amet. Et amet dis vel imperdiet volutpat mauris est leo cursus.
                     </p>
@@ -750,7 +756,5 @@
         </footer>
 
         <script type="module" src="js/macket2.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
-        <script src="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.concat.min.js"></script>
     </body>
 </html>

@@ -1,19 +1,25 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/simplebar/dist/simplebar";
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@700&display=swap');
 
 @each $section, $width, $height, $margin, $padding, $line-margin-bottom, $content-margin-bottom in 
-                        (about, $width-page-content, auto, 0 auto 108px, 0, 50px, 58px), 
-                        (services, $width-page-content, auto, 0 auto 91px, 0, 88px, 0),
-                        (design, 100%, 868px, 0 0 50px, 50px 0 57px, 59px, 0),
-                        (work, $width-page-content, auto, 0 auto 114px, 0, 38px, 80px),
-                        (team, $width-page-content, auto, 0 auto 84px, 0, 49px, 77px),
-                        (partners, 100%, 211px, 0 0 103px, 42px 0, 0, 0),
-                        (our-work, 100%, auto, 0 0 84px, 0, 38px, 80px),
-                        (clients, 100%, 923px, 0 0 103px, 60px 0 42px, 42px, 0),
-                        (blog, $width-page-content, auto, 0 auto 85px, 0, 42px, 0) {
+                        (about, $width-page-content, auto, 0 auto, 50px 0 108px, 50px, 96px), 
+                        (services, $width-page-content, auto, 0 auto, 50px 0 91px, 88px, 0),
+                        (design, 100%, 868px, 0, 50px 0 57px, 59px, 0),
+                        (work, $width-page-content, auto, 0 auto, 50px 0 114px, 38px, 80px),
+                        (reviews, 100%, 254px, 0, 42px 0, 0, 0),
+                        (team, $width-page-content, auto, 0 auto, 103px 0 84px, 49px, 77px),
+                        (partners, 100%, 211px, 0, 42px 0, 0, 0),
+                        (our-work, 100%, auto, 0, 103px 0 84px, 38px, 80px),
+                        (reviews2, 100%, 254px, 0 0 84px, 42px 0, 0, 0),
+                        (clients, 100%, 923px, 0, 60px 0 42px, 42px, 0),
+                        (blog, $width-page-content, auto, 0 auto, 103px 0 85px, 42px, 0),
+                        (map, 100%, 231px, 0, 42px 0, 0, 0),
+                        (info-blog, $width-page-content, auto, 0 auto, 42px 0, 0, 0),
+                        (footer, $width-page-content, auto, 0 auto, 17px 0, 0, 0) {
     .#{$section} {
         @include block-style($width, $height, $margin, $padding);
     }
@@ -67,6 +73,10 @@
 
     &-content {
         position: relative;
+        
+        &-img {
+            @include block-style(370px, 424px);
+        }
     }
 
     &-container:hover &-container-bt {
@@ -84,11 +94,8 @@
         }
 
         .bt-icons-block {
-            display: inline-flex;
-            width: 171px;
-            height: 42px;
-            margin: 191px 100px;
-            justify-content: space-between;
+            @include tpl-display-flex();
+            @include block-style(171px, 42px, 191px auto);
         }
 
         .bt-icon-block {
@@ -120,7 +127,7 @@
 }
 
 .header {
-    @include block-style(100%, 1024px, 0 0 50px);
+    @include block-style(100%, 1024px);
     background: linear-gradient(rgba(233, 130, 131, 0.9), rgba(237, 215, 137, 0.9)), url("../images/header_background.png") no-repeat;
     background-size: 100% 100%;
 
@@ -146,6 +153,7 @@
             }
         }
     }
+
     .header__carousel-caption {
         position: static;
         width: $width-page-content;
@@ -186,6 +194,7 @@
             }
         }
     }
+
     .carousel-indicators {
         width: $width-page-content;
         margin: 0 auto;
@@ -233,7 +242,7 @@
 }
 
 .futures {
-    @include block-style(100%, auto, 0 0 50px);
+    @include block-style(100%);
     background-color: #95E1D3;
     display: flex;
     justify-content: center;
@@ -261,6 +270,7 @@
 }
 
 .services {
+
     &__block {
         @include tpl-display-flex();
         flex-wrap: wrap;
@@ -335,6 +345,7 @@
 }
 
 .work {
+
     &__block {
         @include tpl-display-flex();
         
@@ -346,7 +357,7 @@
             &-item {
                 width: 570px;
                 margin-bottom: 22px;
-                border: 1px solid rgba(0, 0, 0, 0.125);
+                border: 1px solid rgba(0, 0, 0, 0.125) !important;  // работало, а потом перестало, появился в библиотеке border-top: 0
                 border-radius: 0;
 
                 .accordion-button:focus {
@@ -363,47 +374,55 @@
                 }
             }
 
-            &-item:last-child {
-                margin-bottom: 0;
+            &-item:first-of-type {
+                border-radius: 0;
+            }
+
+            &-item:last-of-type {
+                border-radius: 0;
+                margin: 0;
             }
 
             &-body {
-                //overflow-y: scroll;
+                @include block-style(570px, 129px, 17px 0, 0 24px);
                 @include font-style('Raleway', sans-serif, 400, 18px, 21px, none, #2D3033);
+
+                &-text {
+                    padding-right: 54px;
+                    margin: 0;
+                }
             }
 
-            .mCSB_draggerRail {
+            .simplebar-scrollbar::before {
                 width: 7px;
-                background: #F5F5F5;
-                border-radius: 0;
-            }
-
-            .mCSB_dragger .mCSB_dragger_bar {
-                width: 7px;
+                height: 64px;
+                opacity: 1;
                 background: #95E1D3;
                 border-radius: 0;
             }
 
-            .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
-                background: #95E1D3;
+            .simplebar-content {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
             }
 
-            /*
-            &-body::-webkit-scrollbar {
+            .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
                 width: 7px;
-                height: 100px;
-                background: #F5F5F5;
-                
+                left: 0;
+                top: 0;
+                bottom: 0;
             }
-            &-body::-webkit-scrollbar-thumb {
-                background-color: #95E1D3;
-            }*/
+
+            .simplebar-track.simplebar-vertical {
+                width: 7px;
+                right: 24px;
+                background: #F5F5F5;
+            }
         }
     }
 }
 
 .reviews, .reviews2 {
-    @include block-style(100%, 254px, 0 0 103px, 42px 0);
     background: #F8F8F8;
 
     .carousel {
@@ -456,7 +475,7 @@
 }
 
 .team {
-    .tpl__team-container-img, .tpl__team-container:hover .tpl__team-container-bt {
+    .tpl__team-container:hover .tpl__team-container-bt {
         height: 424px;
     }
 }
@@ -472,6 +491,7 @@
 }
 
 .our-work {
+
     &__block {
         display: grid;
         max-width: 1508px;
@@ -489,7 +509,7 @@
             @for $i from 1 through 7 {
                 &:nth-of-type(#{$i}) { 
                     background: url("../images/our-work_#{$i}.png") no-repeat;
-                    background-size: cover;
+                    background-size: 100% 100%;
 
                     @if $i == 3 {
                         grid-column: 3;
@@ -516,12 +536,14 @@
 
             &-subtext {
                 @include block-style(fit-content, auto, 0 auto);
-                @include font-style('Raleway', sans-serif, 400, 18px, 21px, uppercase, #fff);
+                @include font-style('Raleway', sans-serif, 400, 18px, 21px, none, #fff);
             }
         }
 
         &-cell:nth-of-type(3) {
+
             &:hover .our-work__block-hover {
+
                 &-img {
                     margin-top: 300px;
                 }
@@ -532,7 +554,7 @@
 }
 
 .reviews2 {
-    margin-bottom: 84px;
+    background: #fff;
 }
 
 .clients {
@@ -545,7 +567,7 @@
         flex-wrap: wrap;
 
         &-content {
-            @include block-style(549px);
+            @include block-style(550px);
             @include tpl-display-flex();
             &-img {
                 @include block-style(130px, 130px, 20px 0 0 20px);
@@ -553,7 +575,7 @@
         }
 
         &-wrapper {
-            @include block-style(369px);
+            @include block-style(370px);
 
             &-name {
                 @include font-style('Raleway', sans-serif, 700, 24px, 28px, uppercase, #2D3033);
@@ -574,6 +596,10 @@
                 @include font-style('Raleway', sans-serif, 400, 18px, 21px, none, #2D3033);
                 margin-bottom: 42px;               
             }
+        }
+
+        &-content:nth-of-type(n+3) &-wrapper-text {
+            margin-bottom: 0;
         }
     }
 }
@@ -645,8 +671,7 @@
     }
 }
 
-.map {
-    @include block-style(100%, 231px, 0 0 42px, 42px 0);   
+.map { 
     background: linear-gradient(rgba(255, 255, 255, 0.8) , rgba(255, 255, 255, 0.8)), url("../images/bg_map.png") no-repeat;
 
     &__icon {
@@ -657,16 +682,9 @@
         @include block-style(fit-content, auto, 0 auto 42px);
         @include font-style('Raleway', sans-serif, 900, 36px, 42px, uppercase, #F38281);
     }
-
-    &__line {
-        @include block-style(170px, 4px, 0 auto);
-        background-color: #F38281;
-    }
 }
 
 .info-blog {
-    @include block-style($width-page-content, auto, 0 auto);
-    padding-bottom: 42px;
     border-bottom: 1px solid #C6CBCD;
 
     &__block {
@@ -801,12 +819,10 @@
 }
 
 .footer {
-    @include block-style($width-page-content, auto, 0 auto);
 
     &-text {
         @include font-style('Raleway', sans-serif, 700, 13px, 15px, uppercase, #2D3033);
         margin: 0;
-        padding: 17px 0;
         text-align: center;
     }
 }
