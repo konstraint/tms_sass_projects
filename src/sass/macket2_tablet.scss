@@ -42,55 +42,6 @@
         }
     }
 
-    .tpl__team {
-
-        &-container {
-            width: 30%;
-
-            &-img {
-                @include block-style(100%, 282px);
-            }
-    
-            &-name {
-                @include text-size(18px, 21px);
-                margin: 14px 0;
-            }
-    
-            &-empl {
-                @include text-size(14px, 16px);
-            }
-        }
-    
-        &-content {
-            &-img {
-                @include block-style(100%, 359px);
-            }
-        }
-    
-        &-container:hover &-container-bt {
-            @include block-style(100%, 282px);
-            right: 6px;
-            bottom: 6px;
-      
-            .bt-icons-block {
-                @include block-style(143px, 35px, 162px auto);             
-            }
-    
-            .bt-icon-block {
-                @include block-style(35px, 35px);
-                font-size: 10px;
-            }
-
-            .bt-icon-href {
-                margin: 8px 0 8px 8px;
-            }
-    
-            .bt-text {
-                @include text-size(18px, 21px);
-            }
-        }
-    }
-
     .header {
         @include block-style(100%, 694px);
 
@@ -149,6 +100,24 @@
 
             &-text {
                 @include text-size(14px, 16px);
+            }
+        }
+    }
+
+    .about {
+
+        &__container {
+            width: 30%;
+
+            &-img {
+                @include block-style(100%, 282px);
+            }
+    
+            &:hover &-bt {
+                @include block-style(100%, 282px);
+                right: 6px;
+                bottom: 6px;
+                @include text-size(18px, 21px);
             }
         }
     }
@@ -305,8 +274,41 @@
     }
 
     .team {
-        .tpl__team-container:hover .tpl__team-container-bt {
-            height: 359px;
+
+        &__container {
+            width: 30%;
+
+            &-wrapper {
+    
+                &-img {
+                    @include block-style(100%, 359px);
+                }
+            }
+    
+            &-wrapper:hover &-wrapper-bt {
+                @include block-style(100%, 359px);
+                right: 6px;
+                bottom: 6px;
+    
+                .d-flex {
+                    @include block-style(143px, 35px, 162px auto);
+                }
+    
+                .bt-icon-block {
+                    @include block-style(35px, 35px, 0, 8px 0 8px 8px);
+                    font-size: 10px;
+                    background: #F9EFCF;
+                }
+            }
+    
+            &-name {
+                @include text-size(18px, 21px);
+                margin: 14px 0;
+            }
+    
+            &-empl {
+                @include text-size(18px, 21px);
+            }
         }
     }
 
@@ -315,16 +317,15 @@
         &__block {
             @include block-style($width-page-content-tablet, auto, 0 auto);
 
-
-            &-img:first-of-type, &-img:nth-of-type(2), &-img:last-of-type {
+            &-wrapper:first-of-type &-img, &-wrapper:nth-of-type(2) &-img, &-wrapper:last-of-type &-img {
                 @include block-style(86px, 86px);
             }
 
-            &-img:nth-of-type(3), &-img:nth-of-type(5) {
+            &-wrapper:nth-of-type(3) &-img, &-wrapper:nth-of-type(5) &-img {
                @include block-style(48px, 45px);
             }
 
-            &-img:nth-of-type(4) {
+            &-wrapper:nth-of-type(4) &-img {
                 @include block-style(54px, 54px);
             }
         }
@@ -363,12 +364,13 @@
     }
 
     .clients {
+        background: linear-gradient(rgba(255, 255, 255, 0.9) , rgba(255, 255, 255, 0.9)), url("../images/bg_clients.png") no-repeat;
     
         &__block {
             @include block-style($width-page-content-tablet, auto, 0 auto);
     
             &-content {
-                @include block-style(45%);
+                @include block-style(50%);
                 &-img {
                     @include block-style(88px, 88px, 20px 0 0 20px);
                 }
@@ -415,8 +417,7 @@
                     &-sign {
                         top: 125px;
                         left: -8px;
-                        @include block-style(67px, 67px);
-                        padding: 13px 0;
+                        @include block-style(67px, 67px, 0, 13px 0);
     
                         &-text1 {
                             @include text-size(24px, 20px);
