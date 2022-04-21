@@ -44,88 +44,6 @@
     }
 }
 
-.tpl__team {
-    @include tpl-display-flex();
-
-    &-container {
-        position: relative;
-
-        &-img {
-            @include block-style(370px, 338px);
-        }
-
-        &-bt {
-            display: none;
-        }
-
-        &-name {
-            @include font-style('Raleway', sans-serif, 700, 24px, 18px, uppercase, #2D3033);
-            margin: 26px 0;
-            text-align: center;
-        }
-
-        &-empl {
-            @include font-style('Raleway', sans-serif, 400, 18px, 21px, uppercase, #2D3033);
-            margin: 0;
-            text-align: center;
-        }
-    }
-
-    &-content {
-        position: relative;
-        
-        &-img {
-            @include block-style(370px, 424px);
-        }
-    }
-
-    &-container:hover &-container-bt {
-        display: block;
-        @include block-style(370px, 338px);
-        position: absolute;
-        right: 16px;
-        bottom: 16px;
-        background: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
-        border: 0;
-
-        .bt-icon {
-            color: #fff;
-            margin-bottom: 30px;
-        }
-
-        .bt-icons-block {
-            @include tpl-display-flex();
-            @include block-style(171px, 42px, 191px auto);
-        }
-
-        .bt-icon-block {
-            @include block-style(42px, 42px);
-            background: #F9EFCF;
-        }
-        
-        .bt-href {
-            text-decoration: none;
-            color: #F38281;
-        }
-
-        .bt-icon-block:hover {
-            background: #F38281;
-            .bt-href {
-                color: #fff;
-            }
-        }
-
-        .bt-icon-href {
-            margin: 5px 0 5px 8px;
-        }
-
-        .bt-text {
-            margin: 0;
-            @include font-style('Raleway', sans-serif, 500, 24px, 28px, uppercase);
-        }
-    }
-}
-
 .header {
     @include block-style(100%, 1024px);
     background: linear-gradient(rgba(233, 130, 131, 0.9), rgba(237, 215, 137, 0.9)), url("../images/header_background.png") no-repeat;
@@ -136,6 +54,10 @@
         @include tpl-display-flex();
         align-items: center;
 
+        .nav {
+            align-items: center;
+        }
+
         &-logo {
             @include font-style('Raleway', sans-serif, 700, 26px, 26px);
         }
@@ -143,6 +65,11 @@
         & #header__menu-style {
             @include font-style('Raleway', sans-serif, 600, 14px, 16px, uppercase);
             
+            //прячем бургер
+            .menu-icon {
+                display: none;
+            }
+
             .header__menu-item {
                 color: #fff;
 
@@ -152,6 +79,10 @@
                 }
             }
         }
+    }
+
+    .menu-mobile {
+        display: none;
     }
 
     .header__carousel-caption {
@@ -238,6 +169,47 @@
         &-text {
             @include font-style('Raleway', sans-serif, 500, 18px, 21px, uppercase);
         }
+    }
+}
+
+.about {
+
+    &__container {
+        position: relative;
+
+        &-img {
+            @include block-style(370px, 338px);
+        }
+
+        &-bt {
+            display: none;
+        }
+
+        &:hover &-bt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @include block-style(370px, 338px);
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            background: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
+            border: 0;
+            @include font-style('Raleway', sans-serif, 500, 24px, 28px, uppercase);
+
+            &-icon {
+                padding-bottom: 30px;
+            }
+
+            &-text {
+                margin: 0;
+            }
+        }
+    }
+
+    &__container:first-of-type &__container-img:last-of-type {
+        display: none;
     }
 }
 
@@ -428,6 +400,11 @@
     .carousel {
         @include block-style(1089px, auto, 0 auto);
 
+        .carousel-indicators {
+            display: none;
+        }
+
+
         &-inner {
             @include block-style(970px, auto, 0 auto);
 
@@ -475,8 +452,64 @@
 }
 
 .team {
-    .tpl__team-container:hover .tpl__team-container-bt {
-        height: 424px;
+
+    &__container {
+
+        &-wrapper {
+            position: relative;
+
+            &-img {
+                @include block-style(370px, 424px);
+            }
+
+            &-bt {
+                display: none;
+            }
+        }
+
+        &-wrapper:hover &-wrapper-bt {
+            display: block;
+            @include block-style(370px, 424px);
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            background: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
+            border: 0;
+
+            .d-flex {
+                @include block-style(171px, 42px, 191px auto);
+            }
+
+            .bt-icon-block {
+                @include block-style(42px, 42px, 0, 5px 0 5px 8px);
+                background: #F9EFCF;
+
+                .bt-href {
+                    text-decoration: none;
+                    color: #F38281;
+                }
+            }
+
+            .bt-icon-block:hover {
+                background: #F38281;
+
+                .bt-href {
+                    color: #fff;
+                }
+            }
+        }
+
+        &-name {
+            @include font-style('Raleway', sans-serif, 700, 24px, 18px, uppercase, #2D3033);
+            margin: 26px 0;
+            text-align: center;
+        }
+
+        &-empl {
+            @include font-style('Raleway', sans-serif, 400, 18px, 21px, uppercase, #2D3033);
+            margin: 0;
+            text-align: center;
+        }
     }
 }
 
@@ -627,8 +660,7 @@
                     position: absolute;
                     top: 148px;
                     left: -14px;
-                    @include block-style(80px, 80px);
-                    padding: 10px 0;
+                    @include block-style(80px, 80px, 0, 10px 0);
                     text-align: center;
                     background-color: #95E1D3;
 
