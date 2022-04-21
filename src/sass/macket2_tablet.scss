@@ -1,0 +1,633 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+@media only screen and (min-width: $min-width-tablet) and (max-width: $max-width-tablet) {
+    @each $section, $width, $height, $margin, $padding, 
+          $line-margin-bottom, $title-margin-bottom, $text-margin-bottom, $content-margin-bottom in 
+                            (about, $width-page-content-tablet, auto, 0 auto, 45px 0 60px, 33px, 25px, 40px, 70px), 
+                            (services, $width-page-content-tablet, auto, 0 auto, 45px 0 58px, 67px, 36px, 40px, 0),
+                            (design, 100%, 588px, 0, 38px 0, 39px, 23px, 30px, 0),
+                            (work, $width-page-content-tablet, auto, 0 auto, 103px 0 88px, 34px, 42px, 40px, 70px),
+                            (reviews, 100%, 172px, 0, 28px 0, 0, 0, 0, 0),
+                            (team, $width-page-content-tablet, auto, 0 auto, 73px 0 58px, 40px, 36px, 36px, 78px),
+                            (partners, 100%, 143px, 0, 28px 0, 0, 0, 0, 0),
+                            (our-work, 100%, auto, 0, 68px 0 58px, 24px, 23px, 28px, 52px),
+                            (reviews2, 100%, 172px, 0 0 57px, 28px 0, 0, 0, 0, 0),
+                            (clients, 100%, 625px, 0, 38px 0 47px, 28px, 23px, 30px, 0),
+                            (blog, $width-page-content-tablet, auto, 0 auto, 74px 0 85px, 36px, 36px, 40px, 0),
+                            (map, 100%, 156px, 0, 28px 0, 0, 29px, 0, 0),
+                            (info-blog, $width-page-content-tablet, auto, 0 auto, 28px 0 42px, 0, 0, 0, 0),
+                            (footer, $width-page-content-tablet, auto, 0 auto, 15px 0, 0, 0, 0, 0) {
+        .#{$section} {
+            @include block-style($width, $height, $margin, $padding);
+        }
+
+        .#{$section}__title {
+            @include tpl-block-title-style-tablet($title-margin-bottom);
+        }
+
+        .#{$section}__text {
+            @include tpl-block-text-style-tablet($text-margin-bottom);
+        }
+
+        .#{$section}__line {
+            @include block-style(148px, 0, 0 auto $line-margin-bottom);
+            border-bottom: 4px solid #F38281;
+        }
+
+        .#{$section}__content {
+            margin-bottom: $content-margin-bottom;
+            text-align: center;
+            @include font-style('Raleway', sans-serif, 400, 14px, 16px, none, #000);   
+        }
+    }
+
+    .header {
+        @include block-style(100%, 694px);
+
+        &__menu {
+            @include block-style($width-page-content-tablet, 68px, 0 auto 32px);
+
+            & #header__menu-style {
+                @include text-size(13px, 15px);
+            }
+        }
+
+        .header__carousel-caption {
+            width: $width-page-content-tablet;
+
+            &-title {
+                @include text-size(48px, 69px);
+            }
+
+            &-text {
+                @include text-size(96px, 117px);
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            &-line {
+                width: 115px;
+                margin: 0 auto 50px;
+            }
+
+            &-button {
+                width: 317px;
+                height: 52px;
+                margin-bottom: 78px;
+                @include text-size(18px, 21px);
+            }
+        }
+
+        .carousel-indicators {
+            width: $width-page-content-tablet;
+
+            & [data-bs-target] {
+                width: $carousel-indicator-width-tablet;
+            }
+        }
+
+        &__slide-legend {
+            @include block-style($width-page-content-tablet, auto, 0 auto);
+
+            &-content {
+                width: $carousel-indicator-width-tablet;
+            }
+
+            &-num {
+                @include text-size(24px, 28px);
+            }
+
+            &-text {
+                @include text-size(14px, 16px);
+            }
+        }
+    }
+
+    .about {
+
+        &__container {
+            width: 30%;
+
+            &-img {
+                @include block-style(100%, 282px);
+            }
+    
+            &:hover &-bt {
+                @include block-style(100%, 282px);
+                right: 6px;
+                bottom: 6px;
+                @include text-size(18px, 21px);
+            }
+        }
+    }
+
+    .futures {
+
+        &__block {
+            @include block-style(calc($width-page-content-tablet * 0.2), 166px);
+            padding: 30px 0;
+    
+            &-num {
+                @include text-size(48px, 56px);
+            }
+        }
+    }
+
+    .services {
+
+        &__block {  
+
+            &-content {
+                width: $width-service-block-content-tablet;
+    
+                &-img {
+                    width: 59px;
+                    height: 59px;
+                }
+    
+                &-wrapper {
+                    width: 73%;
+    
+                    &-title {
+                        margin: 11px 0 28px;
+                        @include text-size(18px, 21px);
+                    }
+    
+                    &-text {
+                        @include text-size(14px, 16px);
+                    }
+                }
+    
+                margin-bottom: 65px;
+            }
+        }
+    }
+
+    .design {
+
+        &__imgs {
+            @include block-style($min-width-tablet, 356px, 0 auto);
+    
+            &-tablet-inner {
+                @include block-style(446px, 335px);
+                left: calc(($min-width-tablet - 446px) / 2);
+                top: 12px;
+            }
+    
+            &-mobile {
+                @include block-style(135px, 279px);
+                left: 65%;
+                top: 146px;
+            }
+    
+            &-mobile-inner {
+                @include block-style(127px, 267px);
+                left: calc(65% + 4px);
+                top: 146px;
+            }
+        }
+    }
+
+    .work {
+
+        &__block {
+            
+            &-image {
+                @include block-style(calc(50% - 10px), 409px);
+            }
+    
+            .accordion {
+                width: calc(50% - 10px);
+                &-item {
+                    width: 100%;
+                    margin-bottom: 16px;
+                    border: 1px solid rgba(0, 0, 0, 0.125);
+                    border-radius: 0;
+    
+                    .accordion-button:focus {
+                        border: 0;
+                        box-shadow: none;
+                    }
+    
+                    .accordion-button-text {
+                        @include text-size(18px, 21px);
+                    }
+
+                    .accordion-button-icon {
+                        @include block-style(30px, 30px, 0 40px 0 0);
+                    }
+                }
+
+                &-body {
+                    @include block-style(100%, 108px, 15px 0, 0 24px);
+                    @include text-size(14px, 16px);
+                } 
+            }
+        }
+    }
+
+    .reviews, .reviews2 {
+        .carousel {
+            @include block-style(95%, auto, 0 auto);
+    
+            &-inner {
+                @include block-style(90%, auto, 0 auto);
+    
+                .item-block {
+                    
+                    &-img {
+                        @include block-style(115px, 115px, 0, 23px);
+                    }
+
+                    &-image {
+                        @include block-style(115px, 115px);
+                    }
+    
+                    &-content {
+                        @include block-style(80%);
+                        
+                        &-text {
+                            @include text-size(18px, 21px);
+                            margin-bottom: 14px;
+                        }
+    
+                        &-user {
+                            height: 44px;
+    
+                            &-line {
+                                @include block-style(47px, 4px, 0 37px 11px 0);
+                            }
+    
+                            &-line2 {
+                                margin-bottom: 20px;
+                            }
+    
+                            &-name {
+                                @include text-size(24px, 34px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .team {
+
+        &__container {
+            width: 30%;
+
+            &-wrapper {
+    
+                &-img {
+                    @include block-style(100%, 359px);
+                }
+            }
+    
+            &-wrapper:hover &-wrapper-bt {
+                @include block-style(100%, 359px);
+                right: 6px;
+                bottom: 6px;
+    
+                .d-flex {
+                    @include block-style(143px, 35px, 162px auto);
+                }
+    
+                .bt-icon-block {
+                    @include block-style(35px, 35px, 0, 8px 0 8px 8px);
+                    font-size: 10px;
+                    background: #F9EFCF;
+                }
+            }
+    
+            &-name {
+                @include text-size(18px, 21px);
+                margin: 14px 0;
+            }
+    
+            &-empl {
+                @include text-size(18px, 21px);
+            }
+        }
+    }
+
+    .partners {
+
+        &__block {
+            @include block-style($width-page-content-tablet, auto, 0 auto);
+
+            &-wrapper:first-of-type &-img, &-wrapper:nth-of-type(2) &-img, &-wrapper:last-of-type &-img {
+                @include block-style(86px, 86px);
+            }
+
+            &-wrapper:nth-of-type(3) &-img, &-wrapper:nth-of-type(5) &-img {
+               @include block-style(48px, 45px);
+            }
+
+            &-wrapper:nth-of-type(4) &-img {
+                @include block-style(54px, 54px);
+            }
+        }
+    }
+
+    .our-work {
+
+        &__block {
+            grid-template-rows: repeat(2, 256px);
+    
+            &-cell:hover &-hover {
+    
+                &-img {
+                    @include block-style(28px, 28px, 80px calc(50% - 14px) 28px);
+                }
+    
+                &-text {
+                    @include block-style(fit-content, auto, 0 auto 6px);
+                    @include text-size(18px, 21px);
+                }
+    
+                &-subtext {
+                    @include text-size(14px, 16px);
+                }
+            }
+    
+            &-cell:nth-of-type(3) {
+                &:hover .our-work__block-hover {
+                    &-img {
+                        margin-top: 200px;
+                    }
+                }
+            }
+    
+        }
+    }
+
+    .clients {
+        background: linear-gradient(rgba(255, 255, 255, 0.9) , rgba(255, 255, 255, 0.9)), url("../images/bg_clients.png") no-repeat;
+    
+        &__block {
+            @include block-style($width-page-content-tablet, auto, 0 auto);
+    
+            &-content {
+                @include block-style(50%);
+                &-img {
+                    @include block-style(88px, 88px, 20px 0 0 20px);
+                }
+            }
+    
+            &-wrapper {
+                @include block-style(70%);
+    
+                &-name {
+                    @include text-size(18px, 21px);
+                    margin: 8px 0;
+                }
+    
+                &-empl {
+                    @include text-size(14px, 16px);
+                    margin-bottom: 21px;
+                }
+    
+                &-line {
+                    @include block-style(47px, 4px, 0 0 36px);
+                }
+    
+                &-text {
+                    @include text-size(14px, 16px);
+                    margin-bottom: 37px;               
+                }
+            }
+        }
+    }
+
+    .blog {
+        .row {
+            @include block-style(100%, auto, 0 auto);
+    
+            .col {
+                width: 30%;
+    
+                .card {
+
+                    &-img {
+                        height: 214px;
+                    }
+    
+                    &-sign {
+                        top: 125px;
+                        left: -8px;
+                        @include block-style(67px, 67px, 0, 13px 0);
+    
+                        &-text1 {
+                            @include text-size(24px, 20px);
+                        }
+    
+                        &-text2 {
+                            @include text-size(14px, 20px);
+                        }
+                    }
+    
+                    &-body {
+                        padding: 26px 0 41px;
+                    }
+    
+                    &-title {
+                        @include text-size(18px, 21px);
+                        margin-bottom: 28px;
+                    }
+    
+                    &-text {
+                        @include text-size(14px, 16px);
+                    }
+    
+                    &-footer {
+    
+                        &-text {
+                            @include text-size(12px, 14px);
+                            margin: 0 36px 0 14px;
+                        }
+
+                        &-icon {
+                            @include block-style(27px, 27px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .map {  
+
+        &__icon {
+            @include block-style(28px, 28px, 0 calc(50% - 14px) 13px); 
+        }
+    
+        &__title {
+            @include font-style('Raleway', sans-serif, 900, 24px, 28px, uppercase, #F38281);
+        }
+    }
+
+    .info-blog {
+
+        &__block {
+
+            &-wrapper {
+                @include block-style(30%);
+
+                .logo-img {
+                    @include block-style(182px, 67px); 
+                }
+    
+                .logo-text {
+                    @include text-size(14px, 16px);
+                    margin: 15px 0 27px;
+                }
+    
+                .logo-smalltext {
+                    @include text-size(24px, 30px);
+                    margin-bottom: 12px;
+    
+                    &1 {
+                        font-size: 14px;
+                    }
+    
+                    &2 {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            &-wrapper:first-child {
+                flex-basis: 317px;
+                min-width: 317px;
+            }
+
+            &-wrapper:nth-child(2) {
+                flex-basis: 40%;
+            }
+    
+            &-wrapper:nth-child(3) {
+                flex-basis: 20%;
+            }
+    
+            &-social {
+                @include block-style(100%, 29px, 0 0 25px);
+    
+                .social-smalltext {
+                    @include text-size(12px, 14px);
+                    margin: 8px 0 0;
+                }
+    
+                .social-icons {
+                    @include tpl-display-flex();
+                    width: 70%;
+                }
+    
+                .social-href {
+                    width: 12px;
+    
+                    &-icon {
+                        font-size: 12px;
+                    }
+                }
+            }
+    
+            &-form {
+                .form-item {
+                    @include block-style(171px, 37px);
+                    @include text-size(14px, 16px);
+                }
+    
+                .form-item::placeholder {
+                    @include text-size(14px, 16px);
+                }
+    
+                .form-bt {
+                    @include block-style(145px, 37px, 0 0 0 -5px);
+                    @include text-size(14px, 16px);
+                }
+            }
+    
+            &-title {
+                @include text-size(18px, 21px);
+                padding: 23px 0;
+            }
+    
+            &-blogs {
+                margin-top: 0;
+    
+                &-img {
+                    @include block-style(115px, 71px);
+                    margin-bottom: 15px;
+                }
+                
+                &-content {
+                    width: 64%;
+                    max-width: 286px;
+    
+                    &-text {
+                        @include text-size(14px, 16px);
+                        margin: 7px 0;
+                    }
+    
+                    &-smalltext {
+                        @include text-size(12px, 14px);
+                        margin: 0;
+                    }
+                }
+            }
+    
+            &-instagram {
+                grid-template-rows: repeat(3, 77px);
+                margin-bottom: 14px;
+    
+                &-img {
+                    @include block-style(100%, 77px); 
+                }
+
+                &-href {
+                    @include text-size(12px, 14px); 
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $min-width-tablet) and (max-width: 919px) {
+    .info-blog {
+
+        &__block {
+
+            &-wrapper:first-child {
+                flex-basis: 250px;
+                min-width: 250px;
+            }
+    
+            &-form {
+                .form-item {
+                    @include block-style(130px, 37px);
+                }
+    
+                .form-bt {
+                    @include block-style(120px, 37px, 0 0 0 -5px);
+                }
+            }
+
+            &-blogs {
+                
+                &-content {
+                    width: 60%;
+                }
+            }
+    
+            &-instagram {
+                grid-template-rows: repeat(3, 55px);
+    
+                &-img {
+                    @include block-style(100%, 55px); 
+                }
+            }
+        }
+    }
+}
