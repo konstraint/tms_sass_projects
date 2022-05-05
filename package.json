@@ -1,0 +1,31 @@
+{
+  "name": "macket2",
+  "version": "1.0.0",
+  "description": "macket2_sass",
+  "source": "src/macket2.html",
+  "scripts": {
+    "start": "parcel src/macket2.html",
+    "build": "parcel build",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konstraint/tms_sass_projects.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "CHKB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konstraint/tms_sass_projects/issues"
+  },
+  "homepage": "https://github.com/konstraint/tms_sass_projects#readme",
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.1.3",
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.49.11",
+    "simplebar": "^5.3.6"
+  }
+}
